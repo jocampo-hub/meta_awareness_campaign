@@ -3,212 +3,120 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Privacy Shield | The Meta Glasses Crisis</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <title>THE END OF THE STRANGER | Privacy Shield</title>
     <style>
         :root {
-            --bg: #030712;
-            --surface: #111827;
-            --accent: #3b82f6;
-            --text-main: #f9fafb;
-            --text-dim: #9ca3af;
-            --danger: #ef4444;
-            --border: rgba(255, 255, 255, 0.05);
+            --bg: #000;
+            --text: #fff;
+            --sub: #888;
+            --danger: #e63946;
         }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg);
-            color: var(--text-main);
-            line-height: 1.8;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.5;
+            margin: 0;
+            padding: 60px 20px;
         }
 
-        .container { max-width: 900px; margin: auto; padding: 0 1.5rem; }
+        .container { max-width: 700px; margin: 0 auto; }
 
-        /* --- HERO --- */
-        header {
-            padding: 120px 0 60px;
-            text-align: left;
-            border-bottom: 1px solid var(--border);
+        h1 { font-size: 4rem; font-weight: 900; letter-spacing: -3px; line-height: 0.9; margin-bottom: 50px; text-transform: uppercase; }
+        h2 { font-size: 1.8rem; margin-top: 60px; color: var(--danger); }
+        
+        .manifesto { font-size: 1.4rem; font-weight: 300; border-left: 2px solid #333; padding-left: 25px; margin-bottom: 50px; }
+        
+        p { margin-bottom: 25px; font-size: 1.1rem; color: #bbb; }
+        strong { color: #fff; }
+
+        .fact-sheet {
+            background: #111;
+            padding: 30px;
+            margin: 40px 0;
+            border: 1px solid #222;
         }
 
-        .alert-bar {
-            color: var(--danger);
+        .fact-sheet h3 { margin-top: 0; font-size: 1rem; text-transform: uppercase; color: var(--sub); letter-spacing: 2px; }
+
+        .template-header {
+            margin-top: 80px;
             font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 0.8rem;
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        h1 { font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 900; line-height: 1; margin-bottom: 2rem; }
-        
-        .lead { font-size: 1.4rem; color: var(--text-dim); font-weight: 300; max-width: 750px; }
-
-        /* --- CONTENT SECTIONS --- */
-        section { padding: 80px 0; }
-        h2 { font-size: 2.2rem; margin-bottom: 1.5rem; letter-spacing: -0.02em; }
-        h3 { font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; color: var(--accent); }
-        p { margin-bottom: 1.5rem; color: var(--text-dim); }
-
-        .highlight-box {
-            background: var(--surface);
-            padding: 2rem;
-            border-left: 4px solid var(--accent);
-            border-radius: 0 1rem 1rem 0;
-            margin: 2rem 0;
-        }
-
-        /* --- ADVOCACY FORM --- */
-        .advocacy-card {
-            background: linear-gradient(145deg, #1e293b, #0f172a);
-            padding: 3rem;
-            border-radius: 1.5rem;
-            border: 1px solid var(--accent);
-            margin-top: 4rem;
-        }
-
-        .advocacy-card h2 { color: var(--text-main); }
-
-        .form-group { margin-bottom: 1.5rem; }
-        label { display: block; font-weight: 600; margin-bottom: 0.5rem; font-size: 0.9rem; }
-        
-        textarea {
-            width: 100%;
-            height: 300px;
-            background: rgba(0,0,0,0.3);
-            border: 1px solid var(--border);
+            font-size: 1.2rem;
             color: #fff;
-            padding: 1rem;
-            border-radius: 0.5rem;
-            font-family: inherit;
-            line-height: 1.5;
-            resize: none;
         }
 
-        .btn-send {
-            background: var(--accent);
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 0.5rem;
-            text-decoration: none;
-            display: inline-block;
-            font-weight: 700;
-            margin-top: 1rem;
-            transition: transform 0.2s;
+        .copy-box {
+            background: #0a0a0a;
+            border: 1px dashed #444;
+            padding: 30px;
+            font-family: 'Courier', monospace;
+            font-size: 0.9rem;
+            color: #aaa;
+            white-space: pre-wrap;
+            margin-top: 20px;
+            line-height: 1.4;
         }
 
-        .btn-send:hover { transform: scale(1.02); background: #2563eb; }
-
-        /* --- DATA TABLE --- */
-        table { width: 100%; border-collapse: collapse; margin: 2rem 0; }
-        th, td { text-align: left; padding: 1rem; border-bottom: 1px solid var(--border); }
-        th { color: var(--accent); font-size: 0.8rem; text-transform: uppercase; }
-
-        footer { padding: 4rem 0; text-align: center; border-top: 1px solid var(--border); font-size: 0.8rem; color: var(--text-dim); }
+        .notice { font-size: 0.8rem; color: #555; margin-top: 100px; text-align: center; }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <header>
-            <span class="alert-bar">Privacy Warning: 2026 Wearable AI Briefing</span>
-            <h1>The Meta Glasses Narrative: <br><span style="color: var(--accent);">Beyond the Lens.</span></h1>
-            <p class="lead">Meta’s Ray-Ban smart glasses aren't just cameras; they are the front-end for a massive, multi-modal AI surveillance network. It is time to demand legislative guardrails.</p>
-        </header>
+<div class="container">
+    <h1>The End of the Stranger.</h1>
 
-        <section id="deep-dive">
-            <h2>The Privacy Threat Profile</h2>
-            <p>While Meta markets these glasses as a way to "stay in the moment," the technical reality is the permanent erosion of the "Public Anonymity" we have enjoyed for centuries. Here is the detailed breakdown of the threat:</p>
-
-            <h3>1. Multi-Modal AI & Real-Time Context</h3>
-            <p>Unlike a standard camera, Meta glasses use "Look and Ask" AI. This means the device is constantly interpreting the world. It identifies people, brands, financial documents, and private conversations. This data isn't just captured—it is categorized by AI to build a 3D semantic map of your private life.</p>
-
-            <div class="highlight-box">
-                <strong>The "Stranger Doxxing" Paradox:</strong> Research has shown that smart glasses paired with facial recognition (like PimEyes or Clearview AI) can identify a stranger on the street and provide their home address, workplace, and social media in under 15 seconds.
-            </div>
-
-            <h3>2. The "Little Blue Light" Fallacy</h3>
-            <p>Meta claims the LED recording indicator provides transparency. However, in bright daylight, this light is nearly invisible from more than five feet away. Furthermore, there is no hardware-level "kill switch," meaning the microphone can remain active for "Hey Meta" voice commands even when the camera is supposedly off.</p>
-
-            <h3>3. Biometric Data Harvesting</h3>
-            <p>Meta’s glasses collect "Metadata" that most users never see. This includes gait analysis (how you walk), head-movement patterns, and location history. When combined with Meta’s existing database (Facebook/Instagram), it creates a "Digital Twin" that can predict your behavior with frightening accuracy.</p>
-
-            <table>
-                <thead>
-                    <tr>
-                        <th>Feature</th>
-                        <th>Stated Purpose</th>
-                        <th>Hidden Privacy Risk</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Live Streaming</td>
-                        <td>Sharing experiences</td>
-                        <td>Capturing 3rd-party faces without consent.</td>
-                    </tr>
-                    <tr>
-                        <td>AI Multimodal</td>
-                        <td>Identifying objects</td>
-                        <td>Indexing private documents and indoor layouts.</td>
-                    </tr>
-                    <tr>
-                        <td>Cloud Processing</td>
-                        <td>Faster AI</td>
-                        <td>Permanent storage of visual data on Meta servers.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-
-        <section id="advocacy">
-            <div class="advocacy-card">
-                <h2>Demand Accountability</h2>
-                <p>We have drafted a formal grievance. Personalize the text below, then click the button to send it to your local representative or government privacy watchdog.</p>
-                
-                <div class="form-group">
-                    <label>Your Demand Letter (Edit as needed):</label>
-                    <textarea id="letterContent">
-To the Office of Technology Policy and Consumer Protection,
-
-I am writing as a concerned citizen regarding the unregulated proliferation of Meta Ray-Ban Smart Glasses and similar wearable AI devices. 
-
-Current consumer privacy laws are insufficient to handle "Always-On" wearable surveillance. I am demanding the following:
-
-1. Mandatory Hardware Kill-Switches: All wearable cameras must have a physical slider to disconnect the sensor.
-2. Biometric Consent: It should be illegal for AI to perform facial recognition on 3rd parties in public without an opt-in mechanism.
-3. Local Processing Mandates: All visual AI analysis must be performed on the device (Edge Computing), prohibiting the upload of raw environmental video to corporate clouds.
-
-The "Right to be a Stranger" is fundamental to a free society. Please acknowledge receipt of this grievance and outline your plans for wearable tech regulation.
-
-Sincerely,
-[Your Name]
-                    </textarea>
-                </div>
-
-                <a href="javascript:void(0)" onclick="sendEmail()" class="btn-send">Open in Mail Client & Send</a>
-            </div>
-        </section>
-
-        <footer>
-            <p>Privacy Shield Initiative — 2026. This is a static informational site. We do not track you.</p>
-        </footer>
+    <div class="manifesto">
+        Privacy isn't about having a secret. It’s about <strong>controlling your own data.</strong> Meta glasses take that control away from everyone you look at.
     </div>
 
-    <script>
-        function sendEmail() {
-            const body = document.getElementById('letterContent').value;
-            const subject = "Urgent: Policy Request Regarding Wearable AI Surveillance";
-            const mailToLink = `mailto:representative@government.gov?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-            
-            window.location.href = mailToLink;
-        }
-    </script>
+    <p>We are currently sleepwalking into a world where "walking down the street" is a data-collection event. Meta’s Ray-Ban smart glasses are not just a fashion accessory; they are a <strong>distributed surveillance network</strong> that you didn't sign up for.</p>
+
+    <div class="fact-sheet">
+        <h3>The Meta Threat Profile</h3>
+        <p><strong>1. Invisible Recording:</strong> The "recording light" on these glasses is a joke. It is easily obscured, taped over, or missed in daylight. It gives the public the illusion of transparency while providing none.</p>
+        <p><strong>2. The AI Scrape:</strong> Meta is using the visual data from these glasses to train their AI. When a wearer looks at you, your face becomes training data for a private corporation. You cannot opt-out of someone else’s glasses.</p>
+        <p><strong>3. Identifying Strangers:</strong> Using third-party apps, people are already using these glasses to find social media profiles and home addresses of strangers in real-time. This is doxxing as a service.</p>
+    </div>
+
+    <h2>Why You Should Care</h2>
+    <p>Think about where you go. A doctor’s office. A protest. A first date. A playground. In the past, you were protected by the fact that nobody knew who you were. You were a stranger, and that gave you freedom.</p>
+    
+    <p>Smart glasses turn "looking" into "indexing." If a wearer looks at you, they aren't just seeing you; their device is processing you. This creates a <strong>chilling effect</strong> on society. People stop acting naturally when they feel they are being watched by every person in standard-looking eyewear.</p>
+
+    <h2>The Action</h2>
+    <p>We are demanding that the government step in before the concept of public anonymity is gone forever. This is not about banning tech; it is about <strong>Hardware-Level Accountability.</strong></p>
+
+    <div class="template-header">Manual Advocacy Template</div>
+    <p>Copy the text below, find your local representative's email, and paste it. Taking 60 seconds to do this is the only way to get these concerns on the legislative record.</p>
+
+    <div class="copy-box">
+SUBJECT: URGENT: Regulatory Safeguards for Wearable AI Devices
+
+To my Representative,
+
+I am writing to express my grave concern regarding the unregulated use of Meta’s smart glasses and the permanent loss of public privacy they represent. 
+
+These devices allow for the real-time identification and data-harvesting of bystanders without consent. I am asking for your office to support legislation that mandates:
+
+1. HARDWARE KILL-SWITCHES: A physical lens cover must be required on all wearable cameras to ensure they are not recording when the wearer is in sensitive environments.
+2. OPT-IN SURVEILLANCE: It should be illegal for wearable devices to process 3rd-party biometric data (facial recognition) without an explicit digital handshake or consent.
+3. DATA PROTECTION: Corporations must be banned from using bystander imagery captured via wearables to train AI models or build "Digital Twin" databases.
+
+The right to be a stranger in public is a fundamental civil liberty. We cannot allow consumer technology to strip it away for the sake of corporate profit.
+
+Sincerely,
+
+[Your Name]
+[Your Address/Zip]
+    </div>
+
+    <div class="notice">
+        This is a static awareness hub. We do not use cookies. We do not track your visit. We just want you to take action.
+    </div>
+</div>
 
 </body>
 </html>
