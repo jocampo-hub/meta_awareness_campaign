@@ -1,310 +1,333 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Privacy Shield Initiative</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Privacy Shield Initiative | Reclaiming Public Anonymity</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-<style>
-:root {
-    --bg: #0b1220;
-    --card: #111a2e;
-    --text: #e5e7eb;
-    --muted: #9ca3af;
-    --accent: #60a5fa;
-    --accent2: #34d399;
-    --danger: #fb7185;
-    --border: rgba(255,255,255,0.08);
-}
+    <style>
+        :root {
+            --bg: #0b1220;
+            --card: #162035;
+            --text: #f3f4f6;
+            --muted: #9ca3af;
+            --accent: #60a5fa;
+            --accent-glow: rgba(96, 165, 250, 0.3);
+            --accent2: #34d399;
+            --danger: #fb7185;
+            --border: rgba(255,255,255,0.1);
+        }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
 
-body {
-    font-family: "Inter", sans-serif;
-    background: linear-gradient(180deg, #0b1220, #0f172a);
-    color: var(--text);
-}
+        body {
+            font-family: "Inter", sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
 
-/* HERO */
-header {
-    padding: 100px 20px;
-    text-align: center;
-    background: radial-gradient(circle at top, #1f3b82 0%, #0b1220 60%);
-    border-bottom: 1px solid var(--border);
-}
+        /* HERO SECTION */
+        header {
+            padding: 140px 20px 80px;
+            text-align: center;
+            background: radial-gradient(circle at top, #1e3a8a 0%, #0b1220 70%);
+            border-bottom: 1px solid var(--border);
+        }
 
-header h1 {
-    font-size: 38px;
-    margin-bottom: 10px;
-}
+        .badge {
+            display: inline-block;
+            padding: 5px 15px;
+            background: var(--accent-glow);
+            border: 1px solid var(--accent);
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
-header p {
-    color: var(--muted);
-    max-width: 700px;
-    margin: auto;
-}
+        header h1 {
+            font-size: clamp(32px, 5vw, 54px);
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
 
-/* CTA BUTTONS */
-.btn-group {
-    margin-top: 25px;
-}
+        header p {
+            color: var(--muted);
+            max-width: 750px;
+            margin: auto;
+            font-size: 18px;
+        }
 
-button {
-    padding: 10px 18px;
-    margin: 5px;
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-    font-weight: 600;
-    transition: 0.2s;
-}
+        /* NAVIGATION */
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(11, 18, 32, 0.9);
+            backdrop-filter: blur(12px);
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+        }
 
-.primary {
-    background: var(--accent);
-    color: black;
-}
+        nav a {
+            color: var(--muted);
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
 
-.primary:hover {
-    background: #3b82f6;
-}
+        nav a:hover {
+            color: var(--accent);
+        }
 
-.secondary {
-    background: transparent;
-    border: 1px solid var(--border);
-    color: var(--text);
-}
+        /* LAYOUT ELEMENTS */
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 0 20px;
+        }
 
-.secondary:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-}
+        section {
+            padding: 100px 0;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease-out;
+        }
 
-/* NAV */
-nav {
-    position: sticky;
-    top: 0;
-    background: rgba(10, 15, 30, 0.85);
-    backdrop-filter: blur(10px);
-    padding: 12px;
-    text-align: center;
-    border-bottom: 1px solid var(--border);
-    z-index: 999;
-}
+        section.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-nav a {
-    color: var(--muted);
-    margin: 0 10px;
-    text-decoration: none;
-    font-size: 14px;
-}
+        .section-title {
+            margin-bottom: 50px;
+            text-align: center;
+        }
 
-nav a:hover {
-    color: var(--accent);
-}
+        .section-title h2 {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
 
-/* SECTIONS */
-section {
-    max-width: 1000px;
-    margin: 50px auto;
-    padding: 25px;
-    background: rgba(17, 26, 46, 0.75);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.6s ease;
-}
+        .section-title p {
+            color: var(--muted);
+            max-width: 600px;
+            margin: auto;
+        }
 
-section.show {
-    opacity: 1;
-    transform: translateY(0);
-}
+        /* CONTENT CARDS */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
 
-h2 {
-    border-left: 4px solid var(--accent);
-    padding-left: 10px;
-    margin-bottom: 15px;
-}
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 30px;
+            border-radius: 16px;
+            position: relative;
+            overflow: hidden;
+        }
 
-/* GRID */
-.grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-}
+        .card h3 {
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
 
-.card {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid var(--border);
-    padding: 18px;
-    border-radius: 12px;
-    transition: 0.2s;
-}
+        /* ACTION BOXES */
+        .action-box {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            border: 1px solid var(--accent);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+        }
 
-.card:hover {
-    transform: translateY(-5px);
-    border-color: var(--accent);
-}
+        .btn {
+            display: inline-block;
+            padding: 14px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.3s;
+            cursor: pointer;
+            border: none;
+        }
 
-/* STATS */
-.stats {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
+        .btn-primary { background: var(--accent); color: #000; }
+        .btn-primary:hover { background: #93c5fd; box-shadow: 0 0 20px var(--accent-glow); }
 
-.bar {
-    background: rgba(255,255,255,0.05);
-    border-radius: 8px;
-    overflow: hidden;
-}
+        .btn-outline { background: transparent; border: 1px solid var(--accent); color: var(--accent); }
 
-.fill {
-    height: 18px;
-    background: var(--accent);
-}
+        /* THE "WHY" SECTION */
+        .info-block {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
 
-/* JOIN */
-.join {
-    text-align: center;
-}
+        .info-text { flex: 1; }
+        
+        /* ANALYTICS BARS */
+        .stat-row { margin-bottom: 20px; }
+        .bar-bg { background: rgba(255,255,255,0.05); height: 10px; border-radius: 5px; margin-top: 8px; }
+        .bar-fill { height: 100%; border-radius: 5px; background: var(--accent); transition: width 2s ease-in-out; }
 
-.join input {
-    padding: 10px;
-    width: 60%;
-    border-radius: 8px;
-    border: 1px solid var(--border);
-    background: transparent;
-    color: white;
-}
+        footer {
+            padding: 60px 20px;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            color: var(--muted);
+            font-size: 14px;
+        }
 
-footer {
-    text-align: center;
-    padding: 30px;
-    color: var(--muted);
-    border-top: 1px solid var(--border);
-}
-
-@media (max-width: 768px) {
-    .grid {
-        grid-template-columns: 1fr;
-    }
-}
-</style>
+        @media (max-width: 768px) {
+            .info-block { flex-direction: column; text-align: center; }
+        }
+    </style>
 </head>
-
 <body>
 
-<header>
-    <h1>Privacy Shield Initiative</h1>
-    <p>
-        A student-led awareness campaign addressing the risks of smart glasses, hidden recording, and AI-driven surveillance in public and private spaces.
-    </p>
+<nav>
+    <a href="#mission">Mission</a>
+    <a href="#threats">The Threat</a>
+    <a href="#policy">Policy</a>
+    <a href="#action">Action Center</a>
+</nav>
 
-    <div class="btn-group">
-        <button class="primary">Take Action</button>
-        <button class="secondary">Learn More</button>
+<header>
+    <div class="badge">Privacy First Awareness</div>
+    <h1>The End of the Stranger?</h1>
+    <p>Smart glasses are evolving faster than our laws. We exist to ensure that "innovation" doesn't mean the permanent loss of our right to move through the world unnoticed.</p>
+    
+    <div style="margin-top: 30px;">
+        <a href="#action" class="btn btn-primary">Sign the Petition</a>
+        <a href="#threats" class="btn btn-outline" style="margin-left:10px;">View Case Studies</a>
     </div>
 </header>
 
-<nav>
-    <a href="#issue">Issue</a>
-    <a href="#risks">Risks</a>
-    <a href="#stats">Impact</a>
-    <a href="#solutions">Solutions</a>
-    <a href="#join">Join</a>
-</nav>
+<div class="container">
 
-<section id="issue">
-    <h2>The Problem</h2>
-    <p>
-        Smart glasses equipped with cameras can record individuals without consent, raising serious privacy and ethical concerns.
-    </p>
-</section>
-
-<section id="risks">
-    <h2>Key Risks</h2>
-
-    <div class="grid">
-        <div class="card">
-            <h3>Privacy Violations</h3>
-            <p>People can be recorded without knowing or consenting.</p>
+    <section id="mission">
+        <div class="info-block">
+            <div class="info-text">
+                <h2>Why This Campaign Exists</h2>
+                <br>
+                <p>We are at a technological tipping point. Unlike smartphones, which must be held up to record, <strong>wearable AI</strong> captures data from a first-person perspective, often indistinguishable from standard eyewear.</p>
+                <br>
+                <p>The <em>Privacy Shield Initiative</em> was founded after researchers demonstrated "I-XRAY"—a system where smart glasses could identify strangers in real-time by cross-referencing their faces with public databases. Our mission is to advocate for hardware-level safeguards and updated consent laws.</p>
+            </div>
+            <div class="card" style="flex: 0.8; background: var(--accent-glow);">
+                <h3>The Rapid Rise</h3>
+                <div class="stat-row">
+                    <span>Smart Glass Users (Est. 2026)</span>
+                    <div class="bar-bg"><div class="bar-fill" style="width: 85%"></div></div>
+                </div>
+                <div class="stat-row">
+                    <span>Global Privacy Laws covering AR</span>
+                    <div class="bar-bg"><div class="bar-fill" style="width: 12%; background: var(--danger)"></div></div>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div class="card">
-            <h3>AI Misuse</h3>
-            <p>Data may be used for facial recognition or AI training.</p>
+    <section id="threats">
+        <div class="section-title">
+            <h2>The Technical Risks</h2>
+            <p>Moving beyond "hidden recording" into the era of AI-enhanced surveillance.</p>
         </div>
-
-        <div class="card">
-            <h3>Academic Dishonesty</h3>
-            <p>Smart glasses can be used to cheat in exams.</p>
+        
+        <div class="grid">
+            <div class="card">
+                <h3>Real-Time Doxxing</h3>
+                <p>Using facial recognition APIs, a wearer can see your name, address, and social media profiles just by looking at you in a coffee shop.</p>
+            </div>
+            <div class="card">
+                <h3>Involuntary Data Harvesting</h3>
+                <p>Everything the glasses see is often uploaded to cloud servers for "AI Training," meaning your private home interior or children's faces are now corporate data points.</p>
+            </div>
+            <div class="card">
+                <h3>The "Chilling Effect"</h3>
+                <p>When people feel they are always being watched, they change how they speak, act, and protest, leading to a restricted, less free society.</p>
+            </div>
         </div>
+    </section>
 
-        <div class="card">
-            <h3>Surveillance Risks</h3>
-            <p>Potential for stalking, doxxing, and identity tracking.</p>
+    <section id="policy">
+        <div class="section-title">
+            <h2>Our Proposed "Shield Standards"</h2>
+            <p>We are lobbying for these five fundamental requirements for all wearable tech:</p>
         </div>
-    </div>
-</section>
+        <div class="grid">
+            <div class="card">
+                <h4 style="color:var(--accent2)">01. Physical Indicators</h4>
+                <p>A non-disableable, bright LED that must be lit whenever a camera or microphone is active.</p>
+            </div>
+            <div class="card">
+                <h4 style="color:var(--accent2)">02. Local Processing</h4>
+                <p>Mandatory "Edge Computing" where facial data is never sent to a cloud server without explicit 3rd-party consent.</p>
+            </div>
+            <div class="card">
+                <h4 style="color:var(--accent2)">03. Sensitive Zone Geofencing</h4>
+                <p>Automatic disabling of recording features in hospitals, locker rooms, and schools via encrypted location beacons.</p>
+            </div>
+        </div>
+    </section>
 
-<section id="stats">
-    <h2>Awareness Impact</h2>
+    <section id="action">
+        <div class="action-box">
+            <h2>Take Action Today</h2>
+            <p>Awareness is the first step, but policy is the final shield. Join 50,000+ students and privacy advocates.</p>
+            <br>
+            <div style="max-width: 500px; margin: auto;">
+                <input type="email" placeholder="Enter your email for the petition" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--border); background: #0b1220; color: white; margin-bottom: 15px;">
+                <div class="grid" style="grid-template-columns: 1fr 1fr;">
+                    <button class="btn btn-primary">Sign Petition</button>
+                    <button class="btn btn-outline">Download Toolkit</button>
+                </div>
+            </div>
+            <p style="font-size: 12px; margin-top: 20px; color: var(--muted);">By joining, you agree to receive campaign updates. We never share your data—ironic, right?</p>
+        </div>
+    </section>
 
-    <div class="stats">
-        <p>Public Awareness of Smart Glass Risks</p>
-        <div class="bar"><div class="fill" style="width: 35%"></div></div>
-
-        <p>Regulation Coverage</p>
-        <div class="bar"><div class="fill" style="width: 25%"></div></div>
-
-        <p>Reported Misuse Cases</p>
-        <div class="bar"><div class="fill" style="width: 70%; background: var(--danger)"></div></div>
-    </div>
-</section>
-
-<section id="solutions">
-    <h2>Proposed Solutions</h2>
-    <ul>
-        <li>Mandatory recording indicators (LED alerts)</li>
-        <li>Geofencing in sensitive areas</li>
-        <li>Auto face blurring in recordings</li>
-        <li>Clear data usage disclosure</li>
-        <li>Stronger government regulation</li>
-    </ul>
-</section>
-
-<section id="join" class="join">
-    <h2>Join the Movement</h2>
-    <p>Help raise awareness about smart glasses privacy risks.</p>
-    <br/>
-    <input type="text" placeholder="Enter your email">
-    <button class="primary">Join</button>
-</section>
+</div>
 
 <footer>
-    Privacy Shield Initiative © 2026 — Student Awareness Campaign
+    <p>Privacy Shield Initiative — A Student-Led Movement</p>
+    <p style="margin-top:10px; font-size: 12px;">Contact: advocacy@privacyshield.edu | Built for the 2026 Awareness Summit</p>
 </footer>
 
 <script>
-// scroll reveal
-const sections = document.querySelectorAll("section");
+    // Intersection Observer for fade-in effect
+    const observerOptions = { threshold: 0.15 };
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+            }
+        });
+    }, observerOptions);
 
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if(entry.isIntersecting){
-            entry.target.classList.add("show");
-        }
+    document.querySelectorAll('section').forEach(section => {
+        observer.observe(section);
     });
-}, { threshold: 0.1 });
-
-sections.forEach(sec => observer.observe(sec));
 </script>
 
 </body>
