@@ -3,149 +3,219 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>The End of Anonymity | Privacy Shield</title>
+    <title>The End of Anonymity | Privacy Shield Initiative</title>
     <style>
         :root {
             --bg: #000000;
+            --surface: #0a0a0a;
             --text: #ffffff;
-            --dim: #888888;
+            --dim: #a1a1a1;
             --danger: #ff3333;
             --accent: #0070f3;
+            --border: #262626;
         }
 
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background: var(--bg);
             color: var(--text);
             line-height: 1.6;
-            margin: 0;
-            padding: 40px 20px;
+            padding: 80px 20px;
+            -webkit-font-smoothing: antialiased;
         }
 
         .container {
-            max-width: 750px;
+            max-width: 720px;
             margin: 0 auto;
         }
 
-        h1 { font-size: 3rem; font-weight: 800; letter-spacing: -2px; line-height: 1; margin-bottom: 40px; }
-        h2 { font-size: 1.8rem; margin-top: 60px; border-bottom: 2px solid #222; padding-bottom: 10px; }
-        h3 { font-size: 1.2rem; color: var(--danger); text-transform: uppercase; letter-spacing: 1px; margin-top: 30px; }
-
-        p { margin-bottom: 20px; font-size: 1.1rem; color: #ccc; }
-
-        .warning-box {
-            background: #111;
-            padding: 30px;
-            border-left: 5px solid var(--danger);
-            margin: 40px 0;
+        /* Typography */
+        h1 { 
+            font-size: clamp(2.5rem, 8vw, 3.8rem); 
+            font-weight: 800; 
+            letter-spacing: -0.05em; 
+            line-height: 0.95; 
+            margin-bottom: 40px; 
         }
 
-        /* Table Styling */
+        h2 { 
+            font-size: 1.8rem; 
+            margin-top: 60px; 
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border); 
+            padding-bottom: 12px;
+            letter-spacing: -0.02em;
+        }
+
+        h3 { 
+            font-size: 1.1rem; 
+            color: var(--danger); 
+            text-transform: uppercase; 
+            letter-spacing: 0.1em; 
+            margin: 35px 0 15px 0; 
+        }
+
+        p { margin-bottom: 24px; font-size: 1.15rem; color: #d4d4d4; }
+        strong { color: var(--text); font-weight: 600; }
+
+        /* Component: Warning Box */
+        .warning-box {
+            background: var(--surface);
+            padding: 32px;
+            border: 1px solid var(--danger);
+            border-radius: 4px;
+            margin: 48px 0;
+            position: relative;
+        }
+
+        .warning-box strong {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--danger);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+        }
+
+        /* Component: Risk Table */
+        .risk-table-wrapper {
+            margin: 40px 0;
+            overflow-x: auto;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+        }
+
         table {
             width: 100%;
             border-collapse: collapse;
-            margin: 30px 0;
+            text-align: left;
             font-size: 0.95rem;
-            border: 1px solid #222;
+            background: var(--surface);
         }
 
         th {
-            text-align: left;
-            padding: 12px;
-            background: #111;
-            color: var(--danger);
+            padding: 16px;
+            border-bottom: 1px solid var(--border);
+            color: var(--dim);
+            font-weight: 600;
             text-transform: uppercase;
             font-size: 0.75rem;
-            letter-spacing: 1px;
-            border-bottom: 2px solid #222;
+            letter-spacing: 0.05em;
         }
 
         td {
-            padding: 15px 12px;
-            border-bottom: 1px solid #222;
-            color: #ddd;
+            padding: 20px 16px;
+            border-bottom: 1px solid var(--border);
             vertical-align: top;
         }
 
-        .action-template {
-            background: #111;
-            padding: 30px;
-            border: 1px solid #333;
-            font-family: "Courier New", Courier, monospace;
-            font-size: 0.95rem;
-            color: #eee;
-            white-space: pre-wrap;
-            margin-top: 20px;
+        tr:last-child td { border-bottom: none; }
+
+        .feature-name { font-weight: 600; color: var(--text); display: block; margin-bottom: 4px; }
+        .risk-desc { color: var(--dim); line-height: 1.4; }
+
+        /* Component: Action Template */
+        .instruction {
+            font-weight: 700;
+            color: var(--accent);
+            margin-top: 60px;
+            display: block;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
         }
 
-        .instruction {
-            font-weight: bold;
-            color: var(--accent);
-            margin-top: 50px;
+        .action-template {
+            background: #0a0a0a;
+            padding: 40px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+            font-size: 0.9rem;
+            color: #e5e5e5;
+            white-space: pre-wrap;
+            margin-top: 20px;
+            line-height: 1.5;
+            box-shadow: inset 0 2px 10px rgba(0,0,0,0.5);
         }
 
         footer {
             margin-top: 100px;
-            padding-top: 20px;
-            border-top: 1px solid #222;
-            font-size: 0.9rem;
+            padding-top: 40px;
+            border-top: 1px solid var(--border);
+            font-size: 0.85rem;
             color: var(--dim);
+            text-align: center;
         }
 
-        strong { color: var(--text); }
+        /* Responsive Adjustments */
+        @media (max-width: 600px) {
+            body { padding: 40px 15px; }
+            h1 { font-size: 2.5rem; }
+            .action-template { padding: 20px; font-size: 0.8rem; }
+        }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>You didn't consent to be indexed.</h1>
-        
-        <p>Smart glasses aren't just "cameras for your face." They are the first consumer devices that turn <strong>passive observation into active data harvesting.</strong></p>
+    <main class="container">
+        <header>
+            <h1>You didn't consent to be indexed.</h1>
+            <p>Most people think smart glasses are just "GoPros for your face." They aren't. They are the first mass-market consumer device that turns <strong>passive looking into active searching.</strong></p>
+        </header>
 
-        <div class="warning-box">
-            <strong>The Immediate Risk:</strong> Meta is currently training its AI models on the lived experiences captured by these glasses. If you walk past a wearer, your biometric identity and private environment are potentially ingested into a permanent database without your permission.
-        </div>
+        <article class="warning-box">
+            <strong>Why this matters right now:</strong> 
+            Meta is currently training its AI models on the world its wearers see. If you walk past someone wearing them, your biometric identity, your child's face, and the interior of your home are potentially being ingested into a permanent database that you cannot delete.
+        </article>
 
-        <h2>The Reality of the Meta Lens</h2>
+        <section>
+            <h2>The Reality of the Meta Lens</h2>
 
-        <table>
-            <thead>
-                <tr>
-                    <th>Feature</th>
-                    <th>The Impact on You</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>Facial Scraping</strong></td>
-                    <td>Real-time doxxing: linking your physical face to your home address and social history in seconds.</td>
-                </tr>
-                <tr>
-                    <td><strong>Semantic Mapping</strong></td>
-                    <td>AI interprets and logs your private documents, conversations, and indoor layouts as searchable data.</td>
-                </tr>
-                <tr>
-                    <td><strong>Invisible LED</strong></td>
-                    <td>The recording light is often invisible in daylight, removing the social cue of a camera and the ability to opt-out.</td>
-                </tr>
-            </tbody>
-        </table>
+            <h3>The Real-Time Doxxing Threat</h3>
+            <p>In 2024, researchers demonstrated that smart glasses can be paired with facial recognition engines to find a stranger's name and home address in seconds. In 2026, this is no longer a "proof of concept"—it is the new baseline. When a wearer looks at you, they aren't just seeing a face; they are accessing your digital history.</p>
 
-        <h3>The Real-Time Doxxing Threat</h3>
-        <p>In 2024, it was proven that smart glasses can be paired with facial recognition to identify a stranger's personal details instantly. By 2026, this has moved from theory to a baseline capability. When a stranger looks at you, they aren't just seeing a person—they are accessing your digital footprint.</p>
+            <div class="risk-table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Privacy Implication</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="feature-name">Always-On AI</span></td>
+                            <td class="risk-desc">Constant semantic analysis of your environment, documents, and interactions.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="feature-name">Invisible LED</span></td>
+                            <td class="risk-desc">The recording light is easily bypassed or ignored, removing the social cue of consent.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="feature-name">Facial Scraping</span></td>
+                            <td class="risk-desc">Immediate cross-referencing of your physical presence with online databases.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h3>The Chilling Effect</h3>
-        <p>Safe spaces—clinics, community centers, or private meetings—depend on the right to be a stranger. Meta glasses make surveillance <strong>indistinguishable from standard eyewear.</strong> This creates a world where people stop acting authentically because they assume they are always being indexed.</p>
+            <h3>The Death of the "Safe Space"</h3>
+            <p>Safe spaces—clinics, support groups, or private conversations—rely on the assumption that no one is recording. Meta glasses make surveillance <strong>invisible.</strong> This creates a "chilling effect" where people restrict their behavior in public because they assume they are always being indexed.</p>
 
-        <h3>The Data Harvest</h3>
-        <p>Meta isn't just selling hardware; they are mapping <strong>your world.</strong> Every hour these glasses are worn, Meta receives a first-person stream of human behavior. This data builds a "surveillance web" used to predict and manipulate consumer behavior through targeted AI suggestions.</p>
+            <h3>The AI Feedback Loop</h3>
+            <p>Meta isn't just selling hardware; they are harvesting <strong>environmental data.</strong> Every hour these glasses are worn, Meta receives a first-person map of the world. They know what you buy, who you talk to, and where you go. You are effectively helping build a surveillance web that will eventually be used to manipulate consumer behavior.</p>
+        </section>
 
-        <h2>The Right to be a Stranger</h2>
-        <p>Privacy is the right to choose what you share. Smart glasses strip that choice away from everyone in the wearer's vicinity. We are advocating for <strong>hardware-level privacy</strong> as a legal requirement, not a corporate option.</p>
+        <section>
+            <h2>The Right to be a Stranger</h2>
+            <p>Privacy is the right to choose what you share. Smart glasses take that choice away from everyone in the wearer's vicinity. We are advocating for a world where <strong>hardware-level privacy</strong> is the law, not a corporate suggestion.</p>
 
-        <p class="instruction">Copy the text below and send it to your local representative to demand regulation on wearable AI.</p>
+            <label class="instruction">Copy the text below to contact your representative:</label>
 
-        <div class="action-template">
+            <div class="action-template" role="region" aria-label="Email template">
 SUBJECT: URGENT: Demand for Regulation on Wearable AI Surveillance
 
 To my Representative,
@@ -165,12 +235,13 @@ Sincerely,
 
 [Your Name]
 [Your Zip Code]
-        </div>
+            </div>
+        </section>
 
         <footer>
-            <p>Privacy Shield Initiative. 2026. No trackers. No cookies. No BS.</p>
+            <p>Privacy Shield Initiative. 2026. <br>Static Resource. No trackers. No cookies. No BS.</p>
         </footer>
-    </div>
+    </main>
 
 </body>
 </html>
