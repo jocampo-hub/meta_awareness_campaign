@@ -2,289 +2,310 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Smart Glasses Privacy Awareness Campaign</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Privacy Shield Initiative</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-    :root {
-        --bg: #0b1220;
-        --card: #111a2e;
-        --text: #e5e7eb;
-        --muted: #9ca3af;
-        --accent: #60a5fa;
-        --accent2: #34d399;
-        --border: rgba(255,255,255,0.08);
-    }
+:root {
+    --bg: #0b1220;
+    --card: #111a2e;
+    --text: #e5e7eb;
+    --muted: #9ca3af;
+    --accent: #60a5fa;
+    --accent2: #34d399;
+    --danger: #fb7185;
+    --border: rgba(255,255,255,0.08);
+}
 
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    body {
-        font-family: "Inter", Arial, sans-serif;
-        background: linear-gradient(180deg, #0b1220, #0f172a);
-        color: var(--text);
-        line-height: 1.6;
-    }
+body {
+    font-family: "Inter", sans-serif;
+    background: linear-gradient(180deg, #0b1220, #0f172a);
+    color: var(--text);
+}
 
-    /* HERO */
-    header {
-        padding: 80px 20px;
-        text-align: center;
-        background: radial-gradient(circle at top, #1f3b82 0%, #0b1220 60%);
-        border-bottom: 1px solid var(--border);
-    }
+/* HERO */
+header {
+    padding: 100px 20px;
+    text-align: center;
+    background: radial-gradient(circle at top, #1f3b82 0%, #0b1220 60%);
+    border-bottom: 1px solid var(--border);
+}
 
-    header h1 {
-        font-size: 34px;
-        font-weight: 700;
-        margin-bottom: 12px;
-    }
+header h1 {
+    font-size: 38px;
+    margin-bottom: 10px;
+}
 
-    header p {
-        color: var(--muted);
-        max-width: 700px;
-        margin: 0 auto;
-        font-size: 16px;
-    }
+header p {
+    color: var(--muted);
+    max-width: 700px;
+    margin: auto;
+}
 
-    /* NAV */
-    nav {
-        position: sticky;
-        top: 0;
-        background: rgba(10, 15, 30, 0.85);
-        backdrop-filter: blur(10px);
-        border-bottom: 1px solid var(--border);
-        padding: 12px;
-        text-align: center;
-        z-index: 100;
-    }
+/* CTA BUTTONS */
+.btn-group {
+    margin-top: 25px;
+}
 
-    nav a {
-        color: var(--muted);
-        margin: 0 12px;
-        text-decoration: none;
-        font-size: 14px;
-        transition: 0.2s ease;
-    }
+button {
+    padding: 10px 18px;
+    margin: 5px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.2s;
+}
 
-    nav a:hover {
-        color: var(--accent);
-    }
+.primary {
+    background: var(--accent);
+    color: black;
+}
 
-    /* SECTIONS */
-    section {
-        max-width: 1000px;
-        margin: 40px auto;
-        padding: 25px;
-        background: rgba(17, 26, 46, 0.7);
-        border: 1px solid var(--border);
-        border-radius: 14px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-        transition: transform 0.2s ease;
-    }
+.primary:hover {
+    background: #3b82f6;
+}
 
-    section:hover {
-        transform: translateY(-2px);
-    }
+.secondary {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text);
+}
 
-    h2 {
-        font-size: 20px;
-        margin-bottom: 15px;
-        padding-left: 12px;
-        border-left: 4px solid var(--accent);
-    }
+.secondary:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
 
-    p {
-        color: var(--muted);
-        margin-bottom: 12px;
-    }
+/* NAV */
+nav {
+    position: sticky;
+    top: 0;
+    background: rgba(10, 15, 30, 0.85);
+    backdrop-filter: blur(10px);
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+    z-index: 999;
+}
 
-    ul {
-        padding-left: 20px;
-        color: var(--text);
-    }
+nav a {
+    color: var(--muted);
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 14px;
+}
 
-    li {
-        margin-bottom: 8px;
-        color: var(--muted);
-    }
+nav a:hover {
+    color: var(--accent);
+}
 
-    /* GRID CARDS */
+/* SECTIONS */
+section {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 25px;
+    background: rgba(17, 26, 46, 0.75);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+section.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+h2 {
+    border-left: 4px solid var(--accent);
+    padding-left: 10px;
+    margin-bottom: 15px;
+}
+
+/* GRID */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border);
+    padding: 18px;
+    border-radius: 12px;
+    transition: 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent);
+}
+
+/* STATS */
+.stats {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.bar {
+    background: rgba(255,255,255,0.05);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.fill {
+    height: 18px;
+    background: var(--accent);
+}
+
+/* JOIN */
+.join {
+    text-align: center;
+}
+
+.join input {
+    padding: 10px;
+    width: 60%;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: white;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+}
+
+@media (max-width: 768px) {
     .grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 18px;
+        grid-template-columns: 1fr;
     }
-
-    .card {
-        background: rgba(255,255,255,0.03);
-        border: 1px solid var(--border);
-        padding: 18px;
-        border-radius: 12px;
-        transition: all 0.25s ease;
-    }
-
-    .card:hover {
-        transform: translateY(-5px);
-        border-color: rgba(96,165,250,0.5);
-        box-shadow: 0 10px 25px rgba(96,165,250,0.1);
-    }
-
-    .card h3 {
-        color: white;
-        margin-bottom: 10px;
-        font-size: 16px;
-    }
-
-    /* FOOTER */
-    footer {
-        text-align: center;
-        padding: 30px;
-        margin-top: 40px;
-        font-size: 13px;
-        color: var(--muted);
-        border-top: 1px solid var(--border);
-    }
-
-    /* RESPONSIVE */
-    @media (max-width: 768px) {
-        .grid {
-            grid-template-columns: 1fr;
-        }
-
-        header h1 {
-            font-size: 26px;
-        }
-    }
+}
 </style>
 </head>
 
 <body>
 
 <header>
-    <h1>Smart Glasses Privacy Awareness Campaign</h1>
+    <h1>Privacy Shield Initiative</h1>
     <p>
-        Addressing the risks of wearable recording technology, AI surveillance concerns, and the need for stronger privacy protections.
+        A student-led awareness campaign addressing the risks of smart glasses, hidden recording, and AI-driven surveillance in public and private spaces.
     </p>
+
+    <div class="btn-group">
+        <button class="primary">Take Action</button>
+        <button class="secondary">Learn More</button>
+    </div>
 </header>
 
 <nav>
     <a href="#issue">Issue</a>
-    <a href="#responsibility">Responsibility</a>
-    <a href="#concerns">Risks</a>
+    <a href="#risks">Risks</a>
+    <a href="#stats">Impact</a>
     <a href="#solutions">Solutions</a>
-    <a href="#awareness">Awareness</a>
-    <a href="#resources">Resources</a>
+    <a href="#join">Join</a>
 </nav>
 
 <section id="issue">
-    <h2>What Issue Are We Addressing?</h2>
+    <h2>The Problem</h2>
     <p>
-        Smart glasses with built-in cameras can record people without their knowledge or consent, raising serious privacy concerns in public, academic, and professional environments.
+        Smart glasses equipped with cameras can record individuals without consent, raising serious privacy and ethical concerns.
     </p>
-    <ul>
-        <li>Hidden or subtle recording of individuals</li>
-        <li>Unclear data storage and AI usage policies</li>
-        <li>Potential misuse in schools, workplaces, and public spaces</li>
-    </ul>
 </section>
 
-<section id="responsibility">
-    <h2>Who Is Responsible?</h2>
-    <ul>
-        <li>Device users who record without consent</li>
-        <li>Companies such as Meta, Ray-Ban, and Oakley</li>
-        <li>Regulators allowing deployment without strict safeguards</li>
-    </ul>
-</section>
-
-<section id="concerns">
-    <h2>Key Risks and Concerns</h2>
+<section id="risks">
+    <h2>Key Risks</h2>
 
     <div class="grid">
-
         <div class="card">
             <h3>Privacy Violations</h3>
-            <ul>
-                <li>Recording people without consent</li>
-                <li>Potential HIPAA and FERPA violations</li>
-                <li>Loss of control over personal image</li>
-            </ul>
+            <p>People can be recorded without knowing or consenting.</p>
         </div>
 
         <div class="card">
-            <h3>Data & AI Misuse</h3>
-            <ul>
-                <li>Unknown storage of recordings</li>
-                <li>Possible AI training on user data</li>
-                <li>Employee or third-party access risks</li>
-            </ul>
+            <h3>AI Misuse</h3>
+            <p>Data may be used for facial recognition or AI training.</p>
         </div>
 
         <div class="card">
             <h3>Academic Dishonesty</h3>
-            <ul>
-                <li>Capturing exam materials secretly</li>
-                <li>Using AI assistance during tests</li>
-                <li>Undermining academic integrity</li>
-            </ul>
+            <p>Smart glasses can be used to cheat in exams.</p>
         </div>
 
         <div class="card">
-            <h3>AI Surveillance Risks</h3>
-            <ul>
-                <li>Facial recognition linking identities</li>
-                <li>Exposure of personal information</li>
-                <li>Increased stalking and doxxing risk</li>
-            </ul>
+            <h3>Surveillance Risks</h3>
+            <p>Potential for stalking, doxxing, and identity tracking.</p>
         </div>
+    </div>
+</section>
 
+<section id="stats">
+    <h2>Awareness Impact</h2>
+
+    <div class="stats">
+        <p>Public Awareness of Smart Glass Risks</p>
+        <div class="bar"><div class="fill" style="width: 35%"></div></div>
+
+        <p>Regulation Coverage</p>
+        <div class="bar"><div class="fill" style="width: 25%"></div></div>
+
+        <p>Reported Misuse Cases</p>
+        <div class="bar"><div class="fill" style="width: 70%; background: var(--danger)"></div></div>
     </div>
 </section>
 
 <section id="solutions">
     <h2>Proposed Solutions</h2>
     <ul>
-        <li>Geofencing in sensitive areas (schools, hospitals, exams)</li>
-        <li>Mandatory recording indicators (LED or alerts)</li>
-        <li>Auto-blurring faces and sensitive objects</li>
-        <li>Automatic deletion after 24 hours</li>
-        <li>Clear disclosure of data usage policies</li>
+        <li>Mandatory recording indicators (LED alerts)</li>
+        <li>Geofencing in sensitive areas</li>
+        <li>Auto face blurring in recordings</li>
+        <li>Clear data usage disclosure</li>
+        <li>Stronger government regulation</li>
     </ul>
 </section>
 
-<section id="awareness">
-    <h2>Raising Awareness</h2>
-    <ul>
-        <li>Public awareness campaigns about smart glasses risks</li>
-        <li>Educational websites explaining user rights</li>
-        <li>Campus and workplace policy updates</li>
-        <li>Advocacy for stronger privacy legislation</li>
-    </ul>
-</section>
-
-<section id="resources">
-    <h2>Resources</h2>
-    <ul>
-        <li>Purdue Global Law – Smart Glasses Privacy Risks</li>
-        <li>Carleton News – AI Smart Glasses Concerns</li>
-        <li>WIRED – Smart Glass Surveillance Analysis</li>
-        <li>Forbes – Privacy Risks of Meta Ray-Bans</li>
-        <li>Inc – Internal Data Exposure Reports</li>
-        <li>YouTube – How Smart Glasses Work</li>
-    </ul>
+<section id="join" class="join">
+    <h2>Join the Movement</h2>
+    <p>Help raise awareness about smart glasses privacy risks.</p>
+    <br/>
+    <input type="text" placeholder="Enter your email">
+    <button class="primary">Join</button>
 </section>
 
 <footer>
-    Smart Glasses Privacy Awareness Campaign © 2026
+    Privacy Shield Initiative © 2026 — Student Awareness Campaign
 </footer>
+
+<script>
+// scroll reveal
+const sections = document.querySelectorAll("section");
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.classList.add("show");
+        }
+    });
+}, { threshold: 0.1 });
+
+sections.forEach(sec => observer.observe(sec));
+</script>
 
 </body>
 </html>
