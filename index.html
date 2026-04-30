@@ -3,245 +3,120 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>The End of Anonymity | Privacy Shield Initiative</title>
+    <title>THE END OF THE STRANGER | Privacy Shield</title>
     <style>
         :root {
-            --bg: #000000;
-            --surface: #0a0a0a;
-            --text: #ffffff;
-            --dim: #a1a1a1;
-            --danger: #ff3333;
-            --accent: #0070f3;
-            --border: #262626;
+            --bg: #000;
+            --text: #fff;
+            --sub: #888;
+            --danger: #e63946;
         }
-
-        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
             background: var(--bg);
             color: var(--text);
-            line-height: 1.6;
-            padding: 80px 20px;
-            -webkit-font-smoothing: antialiased;
+            line-height: 1.5;
+            margin: 0;
+            padding: 60px 20px;
         }
 
-        .container {
-            max-width: 720px;
-            margin: 0 auto;
-        }
+        .container { max-width: 700px; margin: 0 auto; }
 
-        /* Typography */
-        h1 { 
-            font-size: clamp(2.5rem, 8vw, 3.8rem); 
-            font-weight: 800; 
-            letter-spacing: -0.05em; 
-            line-height: 0.95; 
-            margin-bottom: 40px; 
-        }
+        h1 { font-size: 4rem; font-weight: 900; letter-spacing: -3px; line-height: 0.9; margin-bottom: 50px; text-transform: uppercase; }
+        h2 { font-size: 1.8rem; margin-top: 60px; color: var(--danger); }
+        
+        .manifesto { font-size: 1.4rem; font-weight: 300; border-left: 2px solid #333; padding-left: 25px; margin-bottom: 50px; }
+        
+        p { margin-bottom: 25px; font-size: 1.1rem; color: #bbb; }
+        strong { color: #fff; }
 
-        h2 { 
-            font-size: 1.8rem; 
-            margin-top: 60px; 
-            margin-bottom: 20px;
-            border-bottom: 1px solid var(--border); 
-            padding-bottom: 12px;
-            letter-spacing: -0.02em;
-        }
-
-        h3 { 
-            font-size: 1.1rem; 
-            color: var(--danger); 
-            text-transform: uppercase; 
-            letter-spacing: 0.1em; 
-            margin: 35px 0 15px 0; 
-        }
-
-        p { margin-bottom: 24px; font-size: 1.15rem; color: #d4d4d4; }
-        strong { color: var(--text); font-weight: 600; }
-
-        /* Component: Warning Box */
-        .warning-box {
-            background: var(--surface);
-            padding: 32px;
-            border: 1px solid var(--danger);
-            border-radius: 4px;
-            margin: 48px 0;
-            position: relative;
-        }
-
-        .warning-box strong {
-            display: block;
-            margin-bottom: 8px;
-            color: var(--danger);
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            letter-spacing: 0.05em;
-        }
-
-        /* Component: Risk Table */
-        .risk-table-wrapper {
+        .fact-sheet {
+            background: #111;
+            padding: 30px;
             margin: 40px 0;
-            overflow-x: auto;
-            border: 1px solid var(--border);
-            border-radius: 8px;
+            border: 1px solid #222;
         }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            text-align: left;
-            font-size: 0.95rem;
-            background: var(--surface);
-        }
+        .fact-sheet h3 { margin-top: 0; font-size: 1rem; text-transform: uppercase; color: var(--sub); letter-spacing: 2px; }
 
-        th {
-            padding: 16px;
-            border-bottom: 1px solid var(--border);
-            color: var(--dim);
-            font-weight: 600;
+        .template-header {
+            margin-top: 80px;
+            font-weight: 800;
             text-transform: uppercase;
-            font-size: 0.75rem;
-            letter-spacing: 0.05em;
+            font-size: 1.2rem;
+            color: #fff;
         }
 
-        td {
-            padding: 20px 16px;
-            border-bottom: 1px solid var(--border);
-            vertical-align: top;
-        }
-
-        tr:last-child td { border-bottom: none; }
-
-        .feature-name { font-weight: 600; color: var(--text); display: block; margin-bottom: 4px; }
-        .risk-desc { color: var(--dim); line-height: 1.4; }
-
-        /* Component: Action Template */
-        .instruction {
-            font-weight: 700;
-            color: var(--accent);
-            margin-top: 60px;
-            display: block;
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.02em;
-        }
-
-        .action-template {
+        .copy-box {
             background: #0a0a0a;
-            padding: 40px;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+            border: 1px dashed #444;
+            padding: 30px;
+            font-family: 'Courier', monospace;
             font-size: 0.9rem;
-            color: #e5e5e5;
+            color: #aaa;
             white-space: pre-wrap;
             margin-top: 20px;
-            line-height: 1.5;
-            box-shadow: inset 0 2px 10px rgba(0,0,0,0.5);
+            line-height: 1.4;
         }
 
-        footer {
-            margin-top: 100px;
-            padding-top: 40px;
-            border-top: 1px solid var(--border);
-            font-size: 0.85rem;
-            color: var(--dim);
-            text-align: center;
-        }
-
-        /* Responsive Adjustments */
-        @media (max-width: 600px) {
-            body { padding: 40px 15px; }
-            h1 { font-size: 2.5rem; }
-            .action-template { padding: 20px; font-size: 0.8rem; }
-        }
+        .notice { font-size: 0.8rem; color: #555; margin-top: 100px; text-align: center; }
     </style>
 </head>
 <body>
 
-    <main class="container">
-        <header>
-            <h1>You didn't consent to be indexed.</h1>
-            <p>Most people think smart glasses are just "GoPros for your face." They aren't. They are the first mass-market consumer device that turns <strong>passive looking into active searching.</strong></p>
-        </header>
+<div class="container">
+    <h1>The End of the Stranger.</h1>
 
-        <article class="warning-box">
-            <strong>Why this matters right now:</strong> 
-            Meta is currently training its AI models on the world its wearers see. If you walk past someone wearing them, your biometric identity, your child's face, and the interior of your home are potentially being ingested into a permanent database that you cannot delete.
-        </article>
+    <div class="manifesto">
+        Privacy isn't about having a secret. It’s about <strong>controlling your own data.</strong> Meta glasses take that control away from everyone you look at.
+    </div>
 
-        <section>
-            <h2>The Reality of the Meta Lens</h2>
+    <p>We are currently sleepwalking into a world where "walking down the street" is a data-collection event. Meta’s Ray-Ban smart glasses are not just a fashion accessory; they are a <strong>distributed surveillance network</strong> that you didn't sign up for.</p>
 
-            <h3>The Real-Time Doxxing Threat</h3>
-            <p>In 2024, researchers demonstrated that smart glasses can be paired with facial recognition engines to find a stranger's name and home address in seconds. In 2026, this is no longer a "proof of concept"—it is the new baseline. When a wearer looks at you, they aren't just seeing a face; they are accessing your digital history.</p>
+    <div class="fact-sheet">
+        <h3>The Meta Threat Profile</h3>
+        <p><strong>1. Invisible Recording:</strong> The "recording light" on these glasses is a joke. It is easily obscured, taped over, or missed in daylight. It gives the public the illusion of transparency while providing none.</p>
+        <p><strong>2. The AI Scrape:</strong> Meta is using the visual data from these glasses to train their AI. When a wearer looks at you, your face becomes training data for a private corporation. You cannot opt-out of someone else’s glasses.</p>
+        <p><strong>3. Identifying Strangers:</strong> Using third-party apps, people are already using these glasses to find social media profiles and home addresses of strangers in real-time. This is doxxing as a service.</p>
+    </div>
 
-            <div class="risk-table-wrapper">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Feature</th>
-                            <th>Privacy Implication</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><span class="feature-name">Always-On AI</span></td>
-                            <td class="risk-desc">Constant semantic analysis of your environment, documents, and interactions.</td>
-                        </tr>
-                        <tr>
-                            <td><span class="feature-name">Invisible LED</span></td>
-                            <td class="risk-desc">The recording light is easily bypassed or ignored, removing the social cue of consent.</td>
-                        </tr>
-                        <tr>
-                            <td><span class="feature-name">Facial Scraping</span></td>
-                            <td class="risk-desc">Immediate cross-referencing of your physical presence with online databases.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+    <h2>Why You Should Care</h2>
+    <p>Think about where you go. A doctor’s office. A protest. A first date. A playground. In the past, you were protected by the fact that nobody knew who you were. You were a stranger, and that gave you freedom.</p>
+    
+    <p>Smart glasses turn "looking" into "indexing." If a wearer looks at you, they aren't just seeing you; their device is processing you. This creates a <strong>chilling effect</strong> on society. People stop acting naturally when they feel they are being watched by every person in standard-looking eyewear.</p>
 
-            <h3>The Death of the "Safe Space"</h3>
-            <p>Safe spaces—clinics, support groups, or private conversations—rely on the assumption that no one is recording. Meta glasses make surveillance <strong>invisible.</strong> This creates a "chilling effect" where people restrict their behavior in public because they assume they are always being indexed.</p>
+    <h2>The Action</h2>
+    <p>We are demanding that the government step in before the concept of public anonymity is gone forever. This is not about banning tech; it is about <strong>Hardware-Level Accountability.</strong></p>
 
-            <h3>The AI Feedback Loop</h3>
-            <p>Meta isn't just selling hardware; they are harvesting <strong>environmental data.</strong> Every hour these glasses are worn, Meta receives a first-person map of the world. They know what you buy, who you talk to, and where you go. You are effectively helping build a surveillance web that will eventually be used to manipulate consumer behavior.</p>
-        </section>
+    <div class="template-header">Manual Advocacy Template</div>
+    <p>Copy the text below, find your local representative's email, and paste it. Taking 60 seconds to do this is the only way to get these concerns on the legislative record.</p>
 
-        <section>
-            <h2>The Right to be a Stranger</h2>
-            <p>Privacy is the right to choose what you share. Smart glasses take that choice away from everyone in the wearer's vicinity. We are advocating for a world where <strong>hardware-level privacy</strong> is the law, not a corporate suggestion.</p>
-
-            <label class="instruction">Copy the text below to contact your representative:</label>
-
-            <div class="action-template" role="region" aria-label="Email template">
-SUBJECT: URGENT: Demand for Regulation on Wearable AI Surveillance
+    <div class="copy-box">
+SUBJECT: URGENT: Regulatory Safeguards for Wearable AI Devices
 
 To my Representative,
 
-I am writing to express my deep concern regarding the lack of oversight for wearable AI devices, specifically the Meta Ray-Ban Smart Glasses. 
+I am writing to express my grave concern regarding the unregulated use of Meta’s smart glasses and the permanent loss of public privacy they represent. 
 
-Current laws do not protect citizens from the "always-on" surveillance these devices provide. Unlike a smartphone, these glasses allow for the surreptitious recording and AI-processing of bystanders without any meaningful notice or consent.
+These devices allow for the real-time identification and data-harvesting of bystanders without consent. I am asking for your office to support legislation that mandates:
 
-I am asking for the following legislative actions:
-1. MANDATORY KILL-SWITCHES: Legislation requiring a physical, non-software-based slider that covers the camera lens.
-2. BAN ON PUBLIC FACIAL RECOGNITION: A prohibition on any wearable device linking live visual feeds to public facial databases.
-3. DATA SOVEREIGNTY: Requirements that all visual data be processed locally on the device, preventing corporations from using bystander imagery to train AI models.
+1. HARDWARE KILL-SWITCHES: A physical lens cover must be required on all wearable cameras to ensure they are not recording when the wearer is in sensitive environments.
+2. OPT-IN SURVEILLANCE: It should be illegal for wearable devices to process 3rd-party biometric data (facial recognition) without an explicit digital handshake or consent.
+3. DATA PROTECTION: Corporations must be banned from using bystander imagery captured via wearables to train AI models or build "Digital Twin" databases.
 
-The "right to be a stranger" in public is a cornerstone of a free society. We cannot allow consumer tech to dismantle it.
+The right to be a stranger in public is a fundamental civil liberty. We cannot allow consumer technology to strip it away for the sake of corporate profit.
 
 Sincerely,
 
 [Your Name]
-[Your Zip Code]
-            </div>
-        </section>
+[Your Address/Zip]
+    </div>
 
-        <footer>
-            <p>Privacy Shield Initiative. 2026. <br>Static Resource. No trackers. No cookies. No BS.</p>
-        </footer>
-    </main>
+    <div class="notice">
+        This is a static awareness hub. We do not use cookies. We do not track your visit. We just want you to take action.
+    </div>
+</div>
 
 </body>
 </html>
