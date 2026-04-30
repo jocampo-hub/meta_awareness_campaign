@@ -1,95 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Smart Glasses Privacy Awareness Campaign</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
 <style>
-    body {
-        font-family: Arial, Helvetica, sans-serif;
-        margin: 0;
-        padding: 0;
-        line-height: 1.6;
-        background-color: #f4f6f8;
-        color: #222;
+    :root {
+        --bg: #0b1220;
+        --card: #111a2e;
+        --text: #e5e7eb;
+        --muted: #9ca3af;
+        --accent: #60a5fa;
+        --accent2: #34d399;
+        --border: rgba(255,255,255,0.08);
     }
 
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: "Inter", Arial, sans-serif;
+        background: linear-gradient(180deg, #0b1220, #0f172a);
+        color: var(--text);
+        line-height: 1.6;
+    }
+
+    /* HERO */
     header {
-        background-color: #1f2937;
-        color: white;
-        padding: 40px 20px;
+        padding: 80px 20px;
         text-align: center;
+        background: radial-gradient(circle at top, #1f3b82 0%, #0b1220 60%);
+        border-bottom: 1px solid var(--border);
     }
 
     header h1 {
-        margin: 0;
-        font-size: 28px;
+        font-size: 34px;
+        font-weight: 700;
+        margin-bottom: 12px;
     }
 
     header p {
-        margin-top: 10px;
+        color: var(--muted);
+        max-width: 700px;
+        margin: 0 auto;
         font-size: 16px;
-        opacity: 0.85;
     }
 
+    /* NAV */
     nav {
-        background: #111827;
-        padding: 10px;
+        position: sticky;
+        top: 0;
+        background: rgba(10, 15, 30, 0.85);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--border);
+        padding: 12px;
         text-align: center;
+        z-index: 100;
     }
 
     nav a {
-        color: white;
-        margin: 0 15px;
+        color: var(--muted);
+        margin: 0 12px;
         text-decoration: none;
         font-size: 14px;
+        transition: 0.2s ease;
     }
 
+    nav a:hover {
+        color: var(--accent);
+    }
+
+    /* SECTIONS */
     section {
         max-width: 1000px;
-        margin: 30px auto;
-        background: white;
+        margin: 40px auto;
         padding: 25px;
-        border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        background: rgba(17, 26, 46, 0.7);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+        transition: transform 0.2s ease;
+    }
+
+    section:hover {
+        transform: translateY(-2px);
     }
 
     h2 {
-        border-bottom: 2px solid #e5e7eb;
-        padding-bottom: 8px;
+        font-size: 20px;
         margin-bottom: 15px;
-        color: #111827;
+        padding-left: 12px;
+        border-left: 4px solid var(--accent);
+    }
+
+    p {
+        color: var(--muted);
+        margin-bottom: 12px;
     }
 
     ul {
         padding-left: 20px;
+        color: var(--text);
     }
 
+    li {
+        margin-bottom: 8px;
+        color: var(--muted);
+    }
+
+    /* GRID CARDS */
     .grid {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 20px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
     }
 
     .card {
-        background: #f9fafb;
-        padding: 15px;
-        border-radius: 6px;
-        border: 1px solid #e5e7eb;
+        background: rgba(255,255,255,0.03);
+        border: 1px solid var(--border);
+        padding: 18px;
+        border-radius: 12px;
+        transition: all 0.25s ease;
     }
 
+    .card:hover {
+        transform: translateY(-5px);
+        border-color: rgba(96,165,250,0.5);
+        box-shadow: 0 10px 25px rgba(96,165,250,0.1);
+    }
+
+    .card h3 {
+        color: white;
+        margin-bottom: 10px;
+        font-size: 16px;
+    }
+
+    /* FOOTER */
     footer {
         text-align: center;
-        padding: 20px;
-        font-size: 13px;
-        background: #1f2937;
-        color: white;
+        padding: 30px;
         margin-top: 40px;
+        font-size: 13px;
+        color: var(--muted);
+        border-top: 1px solid var(--border);
     }
 
+    /* RESPONSIVE */
     @media (max-width: 768px) {
         .grid {
             grid-template-columns: 1fr;
+        }
+
+        header h1 {
+            font-size: 26px;
         }
     }
 </style>
@@ -99,13 +170,15 @@
 
 <header>
     <h1>Smart Glasses Privacy Awareness Campaign</h1>
-    <p>Understanding the risks, ethical concerns, and protections surrounding wearable recording technology</p>
+    <p>
+        Addressing the risks of wearable recording technology, AI surveillance concerns, and the need for stronger privacy protections.
+    </p>
 </header>
 
 <nav>
     <a href="#issue">Issue</a>
     <a href="#responsibility">Responsibility</a>
-    <a href="#concerns">Concerns</a>
+    <a href="#concerns">Risks</a>
     <a href="#solutions">Solutions</a>
     <a href="#awareness">Awareness</a>
     <a href="#resources">Resources</a>
@@ -114,97 +187,86 @@
 <section id="issue">
     <h2>What Issue Are We Addressing?</h2>
     <p>
-        The increasing use of smart glasses, including camera-enabled wearable devices, has raised concerns about 
-        individuals being recorded without their knowledge or consent in public and private spaces.
+        Smart glasses with built-in cameras can record people without their knowledge or consent, raising serious privacy concerns in public, academic, and professional environments.
     </p>
     <ul>
-        <li>Hidden or subtle recording capabilities embedded in eyewear</li>
-        <li>People unknowingly being filmed in everyday environments</li>
-        <li>Data being stored, processed, or used for AI training</li>
-        <li>Potential misuse in academic, social, and professional settings</li>
+        <li>Hidden or subtle recording of individuals</li>
+        <li>Unclear data storage and AI usage policies</li>
+        <li>Potential misuse in schools, workplaces, and public spaces</li>
     </ul>
 </section>
 
 <section id="responsibility">
     <h2>Who Is Responsible?</h2>
     <ul>
-        <li>Users of smart glasses</li>
-        <li>Manufacturers such as Meta, Ray-Ban, and Oakley</li>
-        <li>Government and regulatory agencies allowing deployment</li>
+        <li>Device users who record without consent</li>
+        <li>Companies such as Meta, Ray-Ban, and Oakley</li>
+        <li>Regulators allowing deployment without strict safeguards</li>
     </ul>
 </section>
 
 <section id="concerns">
-    <h2>Key Concerns and Risks</h2>
+    <h2>Key Risks and Concerns</h2>
 
     <div class="grid">
+
         <div class="card">
             <h3>Privacy Violations</h3>
             <ul>
-                <li>Recording individuals without consent</li>
-                <li>Potential violations of HIPAA and FERPA in sensitive environments</li>
-                <li>Digital capture of private interactions</li>
+                <li>Recording people without consent</li>
+                <li>Potential HIPAA and FERPA violations</li>
+                <li>Loss of control over personal image</li>
             </ul>
         </div>
 
         <div class="card">
-            <h3>Data Storage & AI Use</h3>
+            <h3>Data & AI Misuse</h3>
             <ul>
-                <li>Unclear storage practices for recorded footage</li>
-                <li>Possible use of data in AI training systems</li>
-                <li>Employees or third parties accessing sensitive content</li>
+                <li>Unknown storage of recordings</li>
+                <li>Possible AI training on user data</li>
+                <li>Employee or third-party access risks</li>
             </ul>
         </div>
 
         <div class="card">
             <h3>Academic Dishonesty</h3>
             <ul>
-                <li>Capturing exam content for later distribution</li>
-                <li>Using AI features to assist during tests</li>
-                <li>Undermining academic integrity policies</li>
+                <li>Capturing exam materials secretly</li>
+                <li>Using AI assistance during tests</li>
+                <li>Undermining academic integrity</li>
             </ul>
         </div>
 
         <div class="card">
-            <h3>AI Stalking & Doxxing</h3>
+            <h3>AI Surveillance Risks</h3>
             <ul>
-                <li>Facial recognition linking identities to personal data</li>
-                <li>Exposure of private social media or home information</li>
-                <li>Increased risk of targeted harassment</li>
+                <li>Facial recognition linking identities</li>
+                <li>Exposure of personal information</li>
+                <li>Increased stalking and doxxing risk</li>
             </ul>
         </div>
+
     </div>
 </section>
 
 <section id="solutions">
     <h2>Proposed Solutions</h2>
     <ul>
-        <li>Geofencing restrictions in sensitive areas</li>
-        <li>Automatic face and object blurring in recordings</li>
-        <li>Mandatory visible indicators when recording is active</li>
-        <li>Auto-deletion of recordings after 24 hours</li>
-        <li>Clear transparency on data storage and usage</li>
-        <li>Institutional policies restricting use in exams or secure environments</li>
+        <li>Geofencing in sensitive areas (schools, hospitals, exams)</li>
+        <li>Mandatory recording indicators (LED or alerts)</li>
+        <li>Auto-blurring faces and sensitive objects</li>
+        <li>Automatic deletion after 24 hours</li>
+        <li>Clear disclosure of data usage policies</li>
     </ul>
 </section>
 
 <section id="awareness">
-    <h2>How to Raise Awareness</h2>
+    <h2>Raising Awareness</h2>
     <ul>
-        <li>Public service announcements explaining smart glasses capabilities</li>
-        <li>Educational websites outlining privacy rights</li>
-        <li>Campus and workplace awareness campaigns</li>
-        <li>Advocacy for stronger regulations and transparency laws</li>
-    </ul>
-</section>
-
-<section id="protection">
-    <h2>How to Protect Yourself</h2>
-    <ul>
-        <li>Understand your legal rights regarding recording in public</li>
-        <li>Learn to identify smart glasses and recording indicators</li>
-        <li>Avoid sensitive discussions in unsecured environments</li>
-        <li>Report suspicious recording activity when appropriate</li>
+        <li>Public awareness campaigns about smart glasses risks</li>
+        <li>Educational websites explaining user rights</li>
+        <li>Campus and workplace policy updates</li>
+        <li>Advocacy for stronger privacy legislation</li>
     </ul>
 </section>
 
@@ -212,23 +274,16 @@
     <h2>Resources</h2>
     <ul>
         <li>Purdue Global Law – Smart Glasses Privacy Risks</li>
-        <li>Carleton News – AI Smart Glasses Privacy Concerns</li>
-        <li>WIRED – The Rise of Smart Glass Surveillance</li>
-        <li>Forbes – Smart Glasses and Personal Data Exposure</li>
-        <li>Inc – Internal Data Exposure Concerns in AI Glasses</li>
-        <li>YouTube: How Smart Glasses Work (educational overview)</li>
+        <li>Carleton News – AI Smart Glasses Concerns</li>
+        <li>WIRED – Smart Glass Surveillance Analysis</li>
+        <li>Forbes – Privacy Risks of Meta Ray-Bans</li>
+        <li>Inc – Internal Data Exposure Reports</li>
+        <li>YouTube – How Smart Glasses Work</li>
     </ul>
 </section>
 
-<section>
-    <h2>Project Contributors</h2>
-    <p>
-        Sam A, Ethan J, Joey Walker, Justin C, Erin B, David B, John O, Jared Smith
-    </p>
-</section>
-
 <footer>
-    <p>Smart Glasses Privacy Awareness Campaign © 2026</p>
+    Smart Glasses Privacy Awareness Campaign © 2026
 </footer>
 
 </body>
